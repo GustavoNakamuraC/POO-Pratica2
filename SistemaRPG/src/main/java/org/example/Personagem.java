@@ -3,7 +3,7 @@ package org.example;
 public class Personagem {
     private String nome;
     private int nivel;
-     int hp;
+    int hp;
     private int atk;
     private int def;
 
@@ -63,11 +63,19 @@ public class Personagem {
     }
 
     public void receberDano(int dano){
-        this.hp -= (dano);
+        if (dano < this.hp){
+            this.hp -= (dano);
+        }else {
+            this.hp = 0;
+        }
     }
 
     public void exibirStatus(){
-
+        System.out.print("/ Nome: " + nome +
+                "/ Nivel: " + nivel +
+                "/ HP: " + hp +
+                "/ Atk: " + atk +
+                "/ Def: " + def);
     }
 
     public boolean estaVivo(){

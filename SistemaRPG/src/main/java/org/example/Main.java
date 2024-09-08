@@ -110,8 +110,23 @@ public class Main {
                 }
                 case 3:{
                     if (personagensList.size() == 2){
-                        do {
 
+                        int turno = 1;
+
+                        personagensList.get(0).exibirStatus();
+                        personagensList.get(1).exibirStatus();
+                        do {
+                            if (turno % 2 == 1){
+                                personagensList.get(0).atacar(personagensList.get(1));
+                                turno++;
+                            }else {
+                                personagensList.get(1).atacar(personagensList.get(0));
+                                turno++;
+                            }
+                            personagensList.get(0).exibirStatus();
+                            System.out.println("");
+                            personagensList.get(1).exibirStatus();
+                            System.out.println("\n\n");
                         }while(personagensList.get(0).estaVivo() && personagensList.get(1).estaVivo());
                     }else
                         System.out.println("\nCrie 2 personagens para batalhar\n");
